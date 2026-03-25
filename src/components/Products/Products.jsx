@@ -3,6 +3,7 @@ import Heading from '../Heading/Heading';
 import ProductList  from '../ProductList/ProductList'
 import Cards from '../Cards/Cards';
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 function Products() {
   const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'See Foods'];
@@ -43,7 +44,14 @@ function Products() {
         </div>
 
         <div className='w-full flex justify-center py-10'>
-          <Button content="View All"/>
+          {/* <Button content="View All"/> */}
+          <Link to="/all-products" className='
+            bg-green-600 bg-gradient-to-b from-green-500 to-green-600 text-white px-8 py-3 rounded-lg 
+            md:text-lg text-md 
+            hover:scale-105
+            hover:from-green-600 transition-all duration-300 cursor-pointer'>
+            View All
+          </Link>
         </div>
 
       </div>

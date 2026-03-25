@@ -4,6 +4,7 @@ import { HiMiniShoppingBag } from "react-icons/hi2";
 import { IoSearch } from "react-icons/io5";
 import { RiMenu2Line } from "react-icons/ri";
 import { TbMenu3 } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 function Navbar() {
 
@@ -26,15 +27,15 @@ function Navbar() {
   return (
     <header className={`bg-white fixed top-0 right-0 left-0 z-50 ${isScrolled ? 'shadow-lg' : '' } `}>
       <nav className="max-w-[1400px] mx-auto px-10 md:h-[14vh] h-[12vh] flex items-center justify-between">
-        <a href="#" className="md:text-3xl text-2xl font-bold text-zinc-800">
+        <Link to="/" className="md:text-3xl text-2xl font-bold text-zinc-800">
           <span className="text-green-600">Fresh</span> Grocery
-        </a>
+        </Link>
 
         <ul className="md:flex items-center gap-x-15 hidden">
           <li>
-            <a href="#" className="font-semibold tracking-wider text-green-600">
+            <Link to="/" className="font-semibold tracking-wider text-green-600">
               Home
-            </a>
+            </Link>
           </li>
           <li>
             <a
@@ -77,10 +78,10 @@ function Navbar() {
             </button>
           </div>
           <a href="#" className="text-zinc-800 text-2xl">
-            <GoHeartFill />
+            <GoHeartFill className="text-red-400" />
           </a>
           <a href="#" className="text-zinc-800 text-2xl">
-            <HiMiniShoppingBag />
+            <HiMiniShoppingBag className="text-amber-800" />
           </a>
           <a href="#" className="text-zinc-800 text-2xl md:hidden" onClick={toggleShowMobileMenu}>
             {
@@ -98,9 +99,9 @@ function Navbar() {
               ${isShowMobileMenu ? 'left-1/2' : '-left-full'}`
             }>
             <li>
-              <a href="#" className="font-semibold tracking-wider text-green-600">
+              <Link to="/" className="font-semibold tracking-wider text-green-600">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
               <a
