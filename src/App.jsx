@@ -6,6 +6,7 @@ import Dairy from './components/Dairy/Dairy';
 import SeeFood from './components/SeeFood/SeeFood';
 import AllProducts from './components/AllProducts/AllProducts';
 import Layout from './components/Layout/Layout';
+import Contact from './components/Contact/Contact';
 
 export default function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ export default function App() {
         {
           path: '/all-products',
           element: <AllProducts />
+        },
+        {
+          path: '/contact',
+          element: <Contact />
         }
       ]
     }, 

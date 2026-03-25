@@ -54,12 +54,12 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/contact"
               className="font-semibold tracking-wider text-zinc-800 hover:text-green-600"
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -120,12 +120,12 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to="/contact"
                 className="font-semibold tracking-wider text-zinc-800 hover:text-green-600"
               >
                 Contact
-              </a>
+              </Link>
             </li>
             <li className="flex p-1 border-2 border-green-600 rounded-full md:hidden">
               <input
