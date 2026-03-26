@@ -1,21 +1,21 @@
 import React from 'react';
 import Strawberry from '../../assets/strawberry.png';
 import { FaMinus, FaPlus, FaTrash } from 'react-icons/fa';
-import { useOutletContext } from 'react-router-dom';
+// import { useOutletContext } from 'react-router-dom';
 
-function Cart() {
+function Cart(props) {
   const { 
     activePanel, 
     togglePanel, 
-    cart, 
     removeProductFromCart, 
-    incrementQuantity, 
-    decrementQuantity,  
+    incrementQuantity,
+    decrementQuantity,
     subtotal,
     shipping,
     handling,
-    orderTotal, 
-  } = useOutletContext();
+    orderTotal,
+    cart
+  } = props
 
 
   const renderCart = cart.map(product => {

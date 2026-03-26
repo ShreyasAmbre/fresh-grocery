@@ -3,6 +3,7 @@ import Navbar from '../Navbar/Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import Wishlist from '../Wishlist/Wishlist';
+import Cart from '../Cart/Cart';
 
 function Layout() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -118,17 +119,17 @@ function Layout() {
       <Outlet context={
         { 
           searchTerm: debouncedSearch, 
-          activePanel: activePanel, 
-          togglePanel: togglePanel,
+          // activePanel: activePanel, 
+          // togglePanel: togglePanel,
           addToCart: addToCart,
-          removeProductFromCart: removeProductFromCart,
-          incrementQuantity: incrementQuantity,
-          decrementQuantity: decrementQuantity, 
+          // removeProductFromCart: removeProductFromCart,
+          // incrementQuantity: incrementQuantity,
+          // decrementQuantity: decrementQuantity, 
           cart: cart,
-          subtotal: subtotal,
-          shipping: shipping,
-          handling: handling,
-          orderTotal: orderTotal,
+          // subtotal: subtotal,
+          // shipping: shipping,
+          // handling: handling,
+          // orderTotal: orderTotal,
           toggleWishlist: toggleWishlist,
           wishlist: wishlist,
         }
@@ -140,6 +141,18 @@ function Layout() {
         wishlist={wishlist} 
         clearWishlist={clearWishlist} 
         addToCart={addToCart}
+      />
+      <Cart 
+        activePanel={activePanel} 
+        togglePanel={togglePanel} 
+        cart={cart}
+        removeProductFromCart={removeProductFromCart}
+        incrementQuantity={incrementQuantity}
+        decrementQuantity={decrementQuantity}
+        subtotal= {subtotal}
+        shipping= {shipping}
+        handling= {handling}
+        orderTotal= {orderTotal}
       />
       <Footer />
     </div>
