@@ -4,6 +4,7 @@ import ProductList  from '../ProductList/ProductList'
 import Cards from '../Cards/Cards';
 import Button from '../Button/Button';
 import { Link, useOutletContext } from 'react-router-dom';
+import { MdProductionQuantityLimits } from 'react-icons/md';
 
 function Products() {
   const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'Sea Foods', 'On Sale', 'New Arrivals'];
@@ -55,20 +56,30 @@ function Products() {
           }
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-9 mt-20'>
-          { renderCards }
-        </div>
+        {filteredItems.length > 0 ? (
+            <>
+              <div className='grid grid-cols-1 md:grid-cols-4 gap-9 mt-20'>
+                { renderCards }
+              </div>
 
-        <div className='w-full flex justify-center py-10'>
-          {/* <Button content="View All"/> */}
-          <Link to="/all-products" className='
-            bg-green-600 bg-gradient-to-b from-green-500 to-green-600 text-white px-8 py-3 rounded-lg 
-            md:text-lg text-md 
-            hover:scale-105
-            hover:from-green-600 transition-all duration-300 cursor-pointer'>
-            View All
-          </Link>
-        </div>
+              <div className='w-full flex justify-center py-10'>
+                {/* <Button content="View All"/> */}
+                <Link to="/all-products" className='
+                  bg-green-600 bg-gradient-to-b from-green-500 to-green-600 text-white px-8 py-3 rounded-lg 
+                  md:text-lg text-md 
+                  hover:scale-105
+                  hover:from-green-600 transition-all duration-300 cursor-pointer'>
+                  View All
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className='flex justify-center items-center gap-5'>
+              <MdProductionQuantityLimits className='text-zinc-600 text-3xl'/>
+              <span className="text-zinc-600 text-2xl text-center py-20 font-semibold">No Products Found</span>
+            </div>
+          )
+        }  
 
       </div>
     </section>
