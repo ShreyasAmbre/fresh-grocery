@@ -103,6 +103,7 @@ function Layout() {
 
   const clearWishlist = () => {
     setWishlist([]);
+    togglePanel(null);
   };
 
 
