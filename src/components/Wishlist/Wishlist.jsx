@@ -1,15 +1,14 @@
 import React from "react";
 import Strawberry from '../../assets/strawberry.png';
-import { useOutletContext } from "react-router-dom";
+// import { useOutletContext } from "react-router-dom";
 
-function Wishlist() {
-  const { 
-    activePanel, 
+function Wishlist(props) {
+  const { activePanel, 
     togglePanel, 
     wishlist,
     addToCart,
-    clearWishlist
-   } = useOutletContext();
+    clearWishlist 
+  } = props
   
   const renderWishlist = wishlist.map(product => {
     return (

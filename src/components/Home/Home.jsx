@@ -20,7 +20,6 @@ function Home() {
       <Values />
       <Products />
       <Cart />
-      <Wishlist />
       <Discount />
       <Process />
       <Testimonials />

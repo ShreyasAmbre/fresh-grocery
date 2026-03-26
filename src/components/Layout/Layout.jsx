@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Footer/Footer'
+import Wishlist from '../Wishlist/Wishlist';
 
 function Layout() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -130,9 +131,16 @@ function Layout() {
           orderTotal: orderTotal,
           toggleWishlist: toggleWishlist,
           wishlist: wishlist,
-          clearWishlist: clearWishlist,
         }
       }/>
+      <Wishlist 
+        activePanel={activePanel} 
+        togglePanel={togglePanel} 
+        toggleWishlist={toggleWishlist} 
+        wishlist={wishlist} 
+        clearWishlist={clearWishlist} 
+        addToCart={addToCart}
+      />
       <Footer />
     </div>
   )
