@@ -6,7 +6,7 @@ import { RiMenu2Line } from "react-icons/ri";
 import { TbMenu3 } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar(props) {
 
   const [isShowMobileMenu, setShowMobileMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false); 
@@ -72,6 +72,8 @@ function Navbar() {
               placeholder="Search..."
               autoComplete="off"
               className="flex-1 h-[5vh] px-3 focus:outline-none"
+              onFocus={props.handleScroll}
+              onChange={(e) => props.setSearchTerm(e.target.value)}
             />
             <button className="bg-green-600 bg-gradient-to-b from-green-500 to-green-600 text-white w-10 h-10 flex justify-center items-center rounded-full text-xl">
               <IoSearch />

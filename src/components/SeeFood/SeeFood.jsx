@@ -6,7 +6,7 @@ import BgSeaFood from '../../assets/seafood-banner.jpg';
 function SeeFood() {
   return (
     <div>
-      <CategoryPage title="Meat & See Foods" bgImg={BgSeaFood} categories={['SeaFood']} />
+      <CategoryPage title="Meat & See Foods" bgImg={BgSeaFood} categories={['Sea Foods']} />
     </div>
   )
 }

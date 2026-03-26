@@ -8,5 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: "/fresh-grocery/",
+  base: "/",
+  // base: "/fresh-grocery/",
 })

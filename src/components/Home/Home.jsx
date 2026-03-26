@@ -10,6 +10,7 @@ import Testimonials from "../Testimonials/Testimonials";
 import Footer from "../Footer/Footer";
 
 function Home() {
+
   return (
     <div>
       <Hero />

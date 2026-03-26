@@ -3,24 +3,40 @@ import Heading from '../Heading/Heading';
 import ProductList  from '../ProductList/ProductList'
 import Cards from '../Cards/Cards';
 import Button from '../Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 
 function Products() {
-  const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'See Foods'];
+  const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'Sea Foods', 'On Sale', 'New Arrivals'];
   const [activeTab, setActiveTab] = useState('All');
 
-  let filteredItems = activeTab === 'All' ? ProductList : 
-  ProductList.filter(item => item.category === activeTab);
+  const { searchTerm } = useOutletContext();
+
+  let filteredItems = ProductList.filter(item => {
+    const matchedCategoryProducts = 
+      (activeTab === 'All') ||
+      (item.onSale && activeTab === 'On Sale') || 
+      (item.newArrival && activeTab === 'New Arrivals') ||
+      (item.category === activeTab);
+
+    const matchedSearch =
+      item.name.toLowerCase().includes(searchTerm.toLowerCase());  
+
+    return matchedCategoryProducts && matchedSearch;
+  }) 
+  
 
   const renderCards = filteredItems.slice(0,8).map((product) => {
     return (
-      <Cards productName={product.name} productPrice={product.price} productImg={product.image} key={product.id} />
+      <Cards 
+        key={product.id}
+        productDetails={product}
+      />
     )
   })
 
 
   return (
-    <section>
+    <section id='product-section'>
       <div className='max-w-[1400px] mx-auto px-10'>
         <Heading highlight="Our" heading=" Products" />
 

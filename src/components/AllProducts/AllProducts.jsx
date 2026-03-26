@@ -9,7 +9,10 @@ function AllProducts() {
 
   const renderCategoryProduct = ProductList.map(product => {
     return(
-      <Cards productName={product.name} productPrice={product.price} productImg={product.image} key={product.id} />
+      <Cards 
+        key={product.id}
+        productDetails={product}
+      />
     )
   }) 
   return (

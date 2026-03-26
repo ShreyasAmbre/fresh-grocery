@@ -10,7 +10,10 @@ function CategoryPage(props) {
 
   const renderCategoryProduct = filteredProducts.map(product => {
     return(
-      <Cards productName={product.name} productPrice={product.price} productImg={product.image} key={product.id} />
+      <Cards 
+        key={product.id}
+        productDetails={product}
+      />
     )
   }) 
   return (
