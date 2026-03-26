@@ -16,6 +16,7 @@ function Layout() {
   const handling = subtotal > 0 ? 20 : 0;
 
   const orderTotal = subtotal + shipping + handling;
+  const [wishlist, setWishlist] = useState([]);
 
   // Note: If you use a dependency array, React already behaves like distinctUntilChanged.
   useEffect(() => {
@@ -83,6 +84,26 @@ function Layout() {
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
+  const toggleWishlist = (product) => {
+    setWishlist(prev => {
+      const exists = prev.find(item => item.id === product.id);
+
+      if (exists) {
+        const updatedList = prev.filter(item => item.id !== product.id);
+        // console.log(updatedList)
+        return updatedList
+      }
+
+      // console.log([...prev, product])
+      return [...prev, product];
+    });
+  };
+
+  const clearWishlist = () => {
+    setWishlist([]);
+  };
+
+
   return (
     <div>
       <Navbar 
@@ -91,6 +112,7 @@ function Layout() {
         setSearchTerm={setSearchTerm} 
         togglePanel={togglePanel}
         cartCount={cartCount}
+        wishlist={wishlist}
       />
       <Outlet context={
         { 
@@ -105,7 +127,10 @@ function Layout() {
           subtotal: subtotal,
           shipping: shipping,
           handling: handling,
-          orderTotal: orderTotal
+          orderTotal: orderTotal,
+          toggleWishlist: toggleWishlist,
+          wishlist: wishlist,
+          clearWishlist: clearWishlist,
         }
       }/>
       <Footer />

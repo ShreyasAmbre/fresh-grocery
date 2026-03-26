@@ -5,7 +5,11 @@ import { useOutletContext } from "react-router-dom";
 
 function Cards(props) {
   const { name, price, image, onSale, newArrival, oldPrice } = props.productDetails
-  const { addToCart } = useOutletContext();
+  const { addToCart, wishlist, toggleWishlist } = useOutletContext();
+
+  const isWishlisted = wishlist?.some(
+    item => item.id === props.productDetails.id
+  );
 
 
   const handleAddToCart = (product) => {
@@ -15,7 +19,8 @@ function Cards(props) {
   return (
     <div className="bg-zinc-100 p-5 rounded-xl">
       <div className="flex justify-between">
-        <span className="text-3xl text-zinc-300 cursor-pointer">
+        <span className={`text-3xl cursor-pointer ${ isWishlisted ? 'text-red-500' : 'text-zinc-300' }`}
+          onClick={() => toggleWishlist(props.productDetails)}>
           <FaHeart />
         </span>
         { 
