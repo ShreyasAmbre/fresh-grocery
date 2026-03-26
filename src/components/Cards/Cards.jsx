@@ -1,9 +1,17 @@
 import React from "react";
 import { FaHeart, FaPlus } from "react-icons/fa";
 import Button from "../Button/Button";
+import { useOutletContext } from "react-router-dom";
 
 function Cards(props) {
   const { name, price, image, onSale, newArrival, oldPrice } = props.productDetails
+  const { addToCart } = useOutletContext();
+
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  }
+
   return (
     <div className="bg-zinc-100 p-5 rounded-xl">
       <div className="flex justify-between">
@@ -46,7 +54,7 @@ function Cards(props) {
           <span className="text-2xl font-bold my-2">$ { price.toFixed(2) }</span>
         </div>
 
-        <Button content="Add to Cart" />
+        <Button content="Add to Cart" onClick={() => handleAddToCart(props.productDetails)} />
       </div>
     </div>
   );

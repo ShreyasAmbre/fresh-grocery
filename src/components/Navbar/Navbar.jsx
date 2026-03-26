@@ -83,10 +83,15 @@ function Navbar(props) {
             onClick={() => props.togglePanel('wishlist')}>
             <GoHeartFill className="text-red-500" />
           </button>
-          <button className="text-zinc-800 text-2xl cursor-pointer"
-            onClick={() => props.togglePanel('cart')}>
-            <HiMiniShoppingBag className="text-amber-800" />
-          </button>
+          <div className="relative cursor-pointer" onClick={() => props.togglePanel('cart')} >
+            <span className="flex items-center justify-center  
+              bg-red-600 text-[18px] w-5 h-5 text-white rounded-full p-1 absolute bottom-0">
+              { props.cartCount ?? 0 }
+            </span>
+            <button className="text-zinc-800 text-2xl cursor-pointer">
+              <HiMiniShoppingBag className="text-amber-800 w-8 h-8" />
+            </button>
+          </div>
           <a href="#" className="text-zinc-800 text-2xl md:hidden" onClick={toggleShowMobileMenu}>
             {
               isShowMobileMenu ? 
