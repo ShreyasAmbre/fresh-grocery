@@ -8,6 +8,8 @@ import Discount from "../Discount/Discount";
 import Process from "../Process/Process";
 import Testimonials from "../Testimonials/Testimonials";
 import Footer from "../Footer/Footer";
+import Cart from "../Cart/Cart";
+import Wishlist from "../Wishlist/Wishlist";
 
 function Home() {
 
@@ -17,6 +19,8 @@ function Home() {
       <Category />
       <Values />
       <Products />
+      <Cart />
+      <Wishlist />
       <Discount />
       <Process />
       <Testimonials />

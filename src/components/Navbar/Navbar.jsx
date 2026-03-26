@@ -79,12 +79,14 @@ function Navbar(props) {
               <IoSearch />
             </button>
           </div>
-          <a href="#" className="text-zinc-800 text-2xl">
-            <GoHeartFill className="text-red-400" />
-          </a>
-          <a href="#" className="text-zinc-800 text-2xl">
+          <button className="text-zinc-800 text-2xl cursor-pointer"
+            onClick={() => props.togglePanel('wishlist')}>
+            <GoHeartFill className="text-red-500" />
+          </button>
+          <button className="text-zinc-800 text-2xl cursor-pointer"
+            onClick={() => props.togglePanel('cart')}>
             <HiMiniShoppingBag className="text-amber-800" />
-          </a>
+          </button>
           <a href="#" className="text-zinc-800 text-2xl md:hidden" onClick={toggleShowMobileMenu}>
             {
               isShowMobileMenu ? 
@@ -137,6 +139,8 @@ function Navbar(props) {
                 placeholder="Search..."
                 autoComplete="off"
                 className="flex-1 h-[5vh] px-3 focus:outline-none"
+                onFocus={props.handleScroll}
+                onChange={(e) => props.setSearchTerm(e.target.value)}
               />
               <button className="bg-green-600 bg-gradient-to-b from-green-500 to-green-600 text-white w-10 h-10 flex justify-center items-center rounded-full text-xl">
                 <IoSearch />

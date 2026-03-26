@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer'
 function Layout() {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [activePanel, setActivePanel] = useState(null);
 
   // Note: If you use a dependency array, React already behaves like distinctUntilChanged.
   useEffect(() => {
@@ -21,14 +22,22 @@ function Layout() {
       section.scrollIntoView({behavior: "smooth"})
     }
   }
+
+  const togglePanel = (tabName) => {
+    setActivePanel(prev => (
+      prev !== tabName ? tabName : null 
+    ))
+  }
+
   return (
     <div>
       <Navbar 
         handleScroll={handleScroll} 
         searchTerm={searchTerm} 
         setSearchTerm={setSearchTerm} 
+        togglePanel={togglePanel}
       />
-      <Outlet context={{ searchTerm: debouncedSearch }} />
+      <Outlet context={{ searchTerm: debouncedSearch, activePanel: activePanel, togglePanel: togglePanel }} />
       <Footer />
     </div>
   )
